@@ -60,7 +60,7 @@ public class UserInterface {
     }
 
     private void addBurger(Order order) {
-        System.out.println("\n--- Choose Size ---");
+//        System.out.println("\n--- Choose Size ---");
 //        for (BurgerSize size : BurgerSize.values()) {
 //            System.out.println("- " + size);
 //        }
@@ -137,10 +137,6 @@ public class UserInterface {
         }
     }
 
-    // ============================================================
-    //                     ADD DRINK
-    // ============================================================
-
     private void addDrink(Order order) {
         System.out.println("\n--- Choose Drink Size ---");
         for (Drink.DrinkSize size : Drink.DrinkSize.values()) {
@@ -155,10 +151,6 @@ public class UserInterface {
 
         System.out.println("Drink added!");
     }
-
-    // ============================================================
-    //                     ADD SIDE
-    // ============================================================
 
     private void addSide(Order order) {
         System.out.println("\n--- Choose Side ---");
@@ -175,10 +167,6 @@ public class UserInterface {
         System.out.println("Side added!");
     }
 
-    // ============================================================
-    //                     CHECKOUT
-    // ============================================================
-
     private void checkout(Order order) {
         if (!order.isValid()) {
             System.out.println("\nOrder must contain at least 1 item.");
@@ -194,10 +182,6 @@ public class UserInterface {
             System.out.println("Order completed!");
         }
     }
-
-    // ============================================================
-    //                     SAFE INPUT
-    // ============================================================
 
     private int readInt() {
         while (!scanner.hasNextInt()) {

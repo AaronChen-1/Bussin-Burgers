@@ -10,12 +10,12 @@ import java.util.List;
 public class Burger extends MenuItem {
 
     private BunType bunType;
-    private boolean specialOption; // e.g. "Toasted" or "Animal Style"
+    private boolean specialOption;
     private List<RegularTopping> regularToppings = new ArrayList<>();
     private List<PremiumTopping> premiumToppings = new ArrayList<>();
 
     public Burger(BunType bunType) {
-        super("Burger", 4.00); // base price of a small burger
+        super("Burger", 4.00);
         this.bunType = bunType;
     }
 
