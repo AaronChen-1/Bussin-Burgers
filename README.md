@@ -43,7 +43,7 @@ Customers can create personalized orders with burgers, drinks, and sides, includ
 
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/<your-username>/bussin-burgers.git
+   git clone https://github.com/AaronChen-1/bussin-burgers.git
 2. Open the project in IntelliJ IDEA or any Java IDE
 3. Run the Main class
 4. Follow on-screen prompts to create orders
