@@ -14,7 +14,7 @@ public class UserInterface {
 
     public void start() {
         while (true) {
-            System.out.println("\n===== BUSSIN BURGERS POS =====");
+            System.out.println("\n=̶=̶=̶=̶=̶ START =̶=̶=̶=̶=̶ ");
             System.out.println("1) New Order");
             System.out.println("2) Exit");
             System.out.print("Choose: ");
@@ -36,7 +36,7 @@ public class UserInterface {
         Order order = new Order();
 
         while (true) {
-            System.out.println("\n===== NEW ORDER =====");
+            System.out.println("\n=̶=̶=̶=̶=̶ NEW ORDER =̶=̶=̶=̶=̶");
             System.out.println("1) Add Burger");
             System.out.println("2) Add Drink");
             System.out.println("3) Add Side");
@@ -80,7 +80,7 @@ public class UserInterface {
         addPremiumToppings(burger);
 
         // Special option
-        System.out.print("\nAdd special option (toasted/animal)? (y/n): ");
+        System.out.print("\nAdd special option: Add bussin sauce?  (y/n): ");
         if (scanner.next().equalsIgnoreCase("y")) {
             burger.setSpecialOption(true);
         }
@@ -92,7 +92,7 @@ public class UserInterface {
     private void addRegularToppings(Burger burger) {
         RegularTopping[] toppings = RegularTopping.values();
 
-        System.out.println("\n--- Add Regular Toppings (FREE) ---");
+        System.out.println("\n=̶=̶=̶=̶ Add Regular Toppings (FREE) =̶=̶=̶=̶");
         for (int i = 0; i < toppings.length; i++) {
             System.out.println((i + 1) + ") " + formatEnumName(toppings[i].name())
                     + " (" + toppings[i].getCalories() + " cal)");
@@ -183,7 +183,7 @@ public class UserInterface {
 
     // ===================== HELPER METHODS =====================
     private <T extends Enum<T>> T chooseFromEnum(T[] values, String prompt) {
-        System.out.println("\n--- " + prompt + " ---");
+        System.out.println("\n=̶=̶=̶=̶=̶ " + prompt + " =̶=̶=̶=̶=̶");
 
         for (int i = 0; i < values.length; i++) {
             String display = formatEnumName(values[i].name());
@@ -248,7 +248,7 @@ public class UserInterface {
     private Side.SideType chooseSideType() {
         Side.SideType[] values = Side.SideType.values();
 
-        System.out.println("\n--- Choose Side ---");
+        System.out.println("\n=̶=̶=̶=̶=̶ Choose Side =̶=̶=̶=̶=̶");
         for (int i = 0; i < values.length; i++) {
             System.out.println((i + 1) + ") " + values[i].getDisplayName()
                     + " (" + values[i].getCalories() + " cal)");
