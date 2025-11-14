@@ -171,10 +171,12 @@ public class UserInterface {
     private void checkout(Order order) {
 //        System.out.println("\n ORDER SUMMARY");
         showCalories(order);
-        System.out.println(order.getReceiptText());
 
         System.out.print("Complete order? (y/n): ");
         if (scanner.next().equalsIgnoreCase("y")) {
+
+            System.out.println(order.getReceiptText());
+
             ReceiptWriter.writeReceipt(order.getReceiptText());
             System.out.println("Order completed!");
         } else {
@@ -276,7 +278,7 @@ public class UserInterface {
         System.out.println("̶=̶=̶=̶=̶̶=̶=̶=̶=̶̶=̶=̶=̶=̶̶=̶=̶=̶=̶̶=̶=̶=̶=̶");
     }
     private void showCalories(Order order) {
-        System.out.println("\n̶=̶=̶=̶ CALORIE SUMMARY ̶=̶=̶=̶");
+        System.out.println("\n̶=̶=̶=̶ CALORIE SUMMARY ̶=̶=̶=̶ ̶=̶=̶=̶ ̶=̶=̶=̶");
         for (MenuItem item : order.getItems()) {
             if (item instanceof Burger burger) {
                 int totalCalories = 0;
@@ -290,7 +292,7 @@ public class UserInterface {
                 }
 
                 // Display burger summary with calories
-                System.out.println("Burger - Total Calories (toppings only): " + totalCalories);
+                System.out.println("Burger - Total Calories " + totalCalories);
             } else if (item instanceof Drink drink) {
                 System.out.println(drink.getDescription().trim()
                         + " - " + drink.getCalories() + " cal");
@@ -299,7 +301,7 @@ public class UserInterface {
                         + " - " + side.getType().getCalories() + " cal");
             }
         }
-        System.out.println("=̶=̶=̶=̶̶=̶=̶=̶=̶̶=̶=̶=̶=̶̶=̶=̶=̶=̶̶=̶=̶=̶=̶=̶=̶");
+        System.out.println("=̶=̶=̶=̶̶=̶=̶=̶=̶̶=̶=̶=̶=̶̶=̶=̶=̶=̶̶=̶=̶=̶=̶=̶=̶ ̶=̶=̶=̶ ̶=̶=̶=̶");
     }
 
     private void suggestCombo(Order order) {

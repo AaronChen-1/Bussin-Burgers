@@ -1,0 +1,17 @@
+        Bussin Burgers
+The Ultimate Burger Experience 
+----------------------------------
+Order ID: 20251114-080231
+Date/Time: 2025-11-14 08:01:40
+----------------------------------
+Order Items:
+1) Burger (Regular Bun)
+Regular Toppings: Grilled onions Lettuce Tomato 
+Premium Toppings: Extra patty Cheese Bacon 
+Special Option Included
+Price: $9.75
+----------------------------------
+Total: $9.75
+
+Thank you for dining with us!
+Visit us at bussinburgers.com
