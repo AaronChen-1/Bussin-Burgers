@@ -1,15 +1,14 @@
 package com.bussinburgers.models.items;
 
 public class Side extends MenuItem {
-    public Side(String name, double basePrice) {
-        super(name, basePrice);
+    public Side(String name) {
+        super(name);
     }
 
     @Override
-    public double getPrice() { return basePrice; }
-
-    @Override
-    public String toString() {
-        return String.format("%s - $%.2f", name, getPrice());
+    public double getPrice() {
+        if(name.equalsIgnoreCase("Fries")) return 2.00;
+        if(name.equalsIgnoreCase("Onion Rings")) return 2.50;
+        return 1.50;
     }
 }
