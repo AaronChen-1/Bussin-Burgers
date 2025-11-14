@@ -1,10 +1,4 @@
-package com.bussinburgers;
-
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.*;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+package com.bussinburgers.util;
 
 //public class ReceiptWriter {
 //
