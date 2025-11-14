@@ -1,10 +1,20 @@
 package com.bussinburgers.models.enums;
 
 public enum RegularTopping {
-    LETTUCE,
-    TOMATO,
-    PICKLES,
-    ONIONS,
-    GRILLED_ONIONS,
-    JALAPENOS
+    LETTUCE("Lettuce"),
+    TOMATO("Tomato"),
+    PICKLES("Pickles"),
+    ONIONS("Onions"),
+    GRILLED_ONIONS("Grilled Onions"),
+    JALAPENOS("Jalapenos");
+
+    private final String displayName;
+    RegularTopping(String displayName) {
+        this.displayName = displayName;
+    }
+
+    @Override
+    public String toString() {
+        return displayName;
+    }
 }
