@@ -1,14 +1,39 @@
 package com.bussinburgers.models.items;
 
 public class Side extends MenuItem {
-    public Side(String name) {
-        super(name);
+
+    public enum SideType {
+        FRIES,
+        CHEESE_FRIES,
+        ONION_RINGS
+    }
+
+    private SideType type;
+
+    public Side(SideType type) {
+        super("Side", 2.00);
+        this.type = type;
     }
 
     @Override
     public double getPrice() {
-        if(name.equalsIgnoreCase("Fries")) return 2.00;
-        if(name.equalsIgnoreCase("Onion Rings")) return 2.50;
-        return 1.50;
+        double price = basePrice;
+
+        switch (type) {
+            case CHEESE_FRIES:
+                price += 1.00;
+                break;
+
+            case ONION_RINGS:
+                price += 1.50;
+                break;
+        }
+
+        return price;
+    }
+
+    @Override
+    public String getDescription() {
+        return type + " - $" + String.format("%.2f", getPrice()) + "\n";
     }
 }
