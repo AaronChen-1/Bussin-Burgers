@@ -1,0 +1,19 @@
+        Bussin Burgers
+The Ultimate Burger Experience 
+----------------------------------
+Order ID: 20251114-045632
+Date/Time: 2025-11-14 04:55:47
+----------------------------------
+Order Items:
+1) Onion Rings - $3.50
+2) Large Orange Soda - $2.50
+3) Burger (Whole wheat Bun)
+Regular Toppings: Onions 
+Premium Toppings: Extra patty Avocado 
+Special Option Included
+Price: $8.25
+----------------------------------
+Total: $14.25
+
+Thank you for dining with us!
+Visit us at bussinburgers.com

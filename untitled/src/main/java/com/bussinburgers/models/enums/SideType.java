@@ -1,10 +1,10 @@
 package com.bussinburgers.models.enums;
 
 public enum SideType {
+
     FRIES("Fries", 320),
-    ONION_RINGS("Onion Rings", 410),
-    SALAD("Side Salad", 150),
-    MOZZARELLA_STICKS("Mozzarella Sticks", 480);
+    CHEESE_FRIES("Cheese Fries", 450),
+    ONION_RINGS("Onion Rings", 380);
 
     private final String displayName;
     private final int calories;
@@ -14,7 +14,11 @@ public enum SideType {
         this.calories = calories;
     }
 
-    public String getDisplayName() { return displayName; }
-    public int getCalories() { return calories; }
-}
+    public String getDisplayName() {
+        return displayName;
+    }
 
+    public int getCalories() {
+        return calories;
+    }
+}

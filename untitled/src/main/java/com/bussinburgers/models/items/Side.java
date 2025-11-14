@@ -18,11 +18,17 @@ public class Side extends MenuItem {
             this.calories = calories;
         }
 
-        public String getDisplayName() { return displayName; }
-        public int getCalories() { return calories; }
+        public String getDisplayName() {
+            return displayName;
+        }
+        public int getCalories() {
+            return calories;
+        }
 
         @Override
-        public String toString() { return displayName; }
+        public String toString() {
+            return displayName;
+        }
     }
 
     private SideType type;
@@ -48,5 +54,7 @@ public class Side extends MenuItem {
         return type.getDisplayName() + " - " + "$" + String.format("%.2f", getPrice()) + "\n";
     }
 
-    public SideType getType() { return type; }
+    public SideType getType() {
+        return type;
+    }
 }

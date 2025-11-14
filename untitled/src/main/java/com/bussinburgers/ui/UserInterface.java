@@ -117,7 +117,7 @@ public class UserInterface {
     private void addPremiumToppings(Burger burger) {
         PremiumTopping[] toppings = PremiumTopping.values();
 
-        System.out.println("\n--- Add Premium Toppings ($1.50 each) ---");
+        System.out.println("\n=̶=̶=̶ Add Premium Toppings ($1.50 each) =̶=̶=̶");
         for (int i = 0; i < toppings.length; i++) {
             System.out.println((i + 1) + ") " + formatEnumName(toppings[i].name())
                     + " (" + toppings[i].getCalories() + " cal)");

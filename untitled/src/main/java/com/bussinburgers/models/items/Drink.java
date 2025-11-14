@@ -4,10 +4,6 @@ import com.bussinburgers.models.items.MenuItem;
 
 public class Drink extends MenuItem {
 
-    // --------------------------
-    // ENUMS
-    // --------------------------
-
     public enum DrinkType {
         COLA("Coca Cola", 140),
         DIET_COLA("Diet Cola", 0),
@@ -42,26 +38,14 @@ public class Drink extends MenuItem {
         public String getDisplayName() { return displayName; }
     }
 
-    // --------------------------
-    // CLASS FIELDS
-    // --------------------------
-
     private DrinkType type;
     private DrinkSize size;
-
-    // --------------------------
-    // CONSTRUCTOR
-    // --------------------------
 
     public Drink(DrinkType type, DrinkSize size) {
         super(type.getDisplayName(), 1.50); // base price (will adjust soon)
         this.type = type;
         this.size = size;
     }
-
-    // --------------------------
-    // PRICE CALCULATION
-    // --------------------------
 
     @Override
     public double getPrice() {
@@ -75,19 +59,11 @@ public class Drink extends MenuItem {
         return price;
     }
 
-    // --------------------------
-    // DESCRIPTION FOR RECEIPT
-    // --------------------------
-
     @Override
     public String getDescription() {
         return size.getDisplayName() + " " + type.getDisplayName()
                 + " - $" + String.format("%.2f", getPrice()) + "\n";
     }
-
-    // --------------------------
-    // GETTERS
-    // --------------------------
 
     public DrinkType getType() { return type; }
     public DrinkSize getSize() { return size; }
