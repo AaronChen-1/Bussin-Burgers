@@ -1,13 +1,34 @@
 package com.bussinburgers.models.items;
 
+import java.util.Locale;
+
 public class Side extends MenuItem {
 
-    public enum SideType { FRIES, CHEESE_FRIES, ONION_RINGS }
+    // Inner enum - THE only SideType you should use in the project
+    public enum SideType {
+        FRIES("Fries", 320),
+        CHEESE_FRIES("Cheese Fries", 450),
+        ONION_RINGS("Onion Rings", 380);
+
+        private final String displayName;
+        private final int calories;
+
+        SideType(String displayName, int calories) {
+            this.displayName = displayName;
+            this.calories = calories;
+        }
+
+        public String getDisplayName() { return displayName; }
+        public int getCalories() { return calories; }
+
+        @Override
+        public String toString() { return displayName; }
+    }
 
     private SideType type;
 
     public Side(SideType type) {
-        super("Side", 2.00);
+        super(type.getDisplayName(), 2.00);
         this.type = type;
     }
 
@@ -24,18 +45,8 @@ public class Side extends MenuItem {
 
     @Override
     public String getDescription() {
-        return formatEnumName(type.name()) + " - $" + String.format("%.2f", getPrice()) + "\n";
+        return type.getDisplayName() + " - " + type.getCalories() + " cal - $" + String.format("%.2f", getPrice());
     }
 
     public SideType getType() { return type; }
-
-    private String formatEnumName(String name) {
-        String formatted = name.replace("_", " ").toLowerCase();
-        return formatted.substring(0,1).toUpperCase() + formatted.substring(1);
-    }
-
-    @Override
-    public String toString() {
-        return formatEnumName(type.name());
-    }
 }
