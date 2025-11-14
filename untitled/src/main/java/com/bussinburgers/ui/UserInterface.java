@@ -59,17 +59,13 @@ public class UserInterface {
         }
     }
 
-    // ============================================================
-    //                      ADD BURGER
-    // ============================================================
-
     private void addBurger(Order order) {
         System.out.println("\n--- Choose Size ---");
-        for (BurgerSize size : BurgerSize.values()) {
-            System.out.println("- " + size);
-        }
-        System.out.print("Enter size: ");
-        BurgerSize size = BurgerSize.valueOf(scanner.next().toUpperCase());
+//        for (BurgerSize size : BurgerSize.values()) {
+//            System.out.println("- " + size);
+//        }
+//        System.out.print("Enter size: ");
+//        BurgerSize size = BurgerSize.valueOf(scanner.next().toUpperCase());
 
         System.out.println("\n--- Choose Bun Type ---");
         for (BunType bun : BunType.values()) {
@@ -78,7 +74,8 @@ public class UserInterface {
         System.out.print("Enter bun: ");
         BunType bun = BunType.valueOf(scanner.next().toUpperCase());
 
-        Burger burger = new Burger(size, bun);
+//        Burger burger = new Burger(size, bun);
+        Burger burger = new Burger(bun);
 
         addRegularToppings(burger);
         addPremiumToppings(burger);
