@@ -1,0 +1,13 @@
+Bussin Burgers
+"The ultimate burger experience"
+------
+Order ID: 20251114-014622
+Date/Time: 2025-11-14 01:46:10
+----------
+Order Items:
+1) Medium Iced tea - $2.25
+----------
+Total: $2.25
+
+Thank you for dining with us!
+Visit us at bussinburgers.com

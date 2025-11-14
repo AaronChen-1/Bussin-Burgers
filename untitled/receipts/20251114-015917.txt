@@ -1,0 +1,13 @@
+          Bussin Burgers
+"The ultimate burger experience"
+----------------------------------
+Order ID: 20251114-015917
+Date/Time: 2025-11-14 01:58:23
+----------------------------------
+Order Items:
+1) Cheese fries - $3.00
+----------------------------------
+Total: $3.00
+
+Thank you for dining with us!
+Visit us at bussinburgers.com

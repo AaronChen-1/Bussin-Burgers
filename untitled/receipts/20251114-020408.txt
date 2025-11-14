@@ -1,0 +1,13 @@
+        Bussin Burgers
+The Ultimate Burger Experience 
+----------------------------------
+Order ID: 20251114-020408
+Date/Time: 2025-11-14 02:03:51
+----------------------------------
+Order Items:
+1) Large Iced tea - $3.00
+----------------------------------
+Total: $3.00
+
+Thank you for dining with us!
+Visit us at bussinburgers.com
