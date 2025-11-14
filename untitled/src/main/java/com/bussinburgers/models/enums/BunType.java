@@ -1,6 +1,7 @@
 package com.bussinburgers.models.enums;
 
 public enum BunType {
-    WHITE,
-    WHEAT
+    REGULAR,
+    WHOLE_WHEAT,
+    LETTUCE_WRAP
 }
