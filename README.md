@@ -38,6 +38,125 @@ Customers can create personalized orders with burgers, drinks, and sides, includ
   - `ReceiptWriter` to save receipts as `.txt` files  
 
 ---
+
+## 🚀 Getting Started
+
+1. Clone the repository:  
+   ```bash
+   git clone https://github.com/<your-username>/bussin-burgers.git
+2. Open the project in IntelliJ IDEA or any Java IDE
+3. Run the Main class
+4. Follow on-screen prompts to create orders
+
+---
+## System Design
+
+### Class Diagram
+
+<img width="1080" height="720" alt="image" src="https://github.com/user-attachments/assets/b192743c-79f3-448e-a9a2-94a0dd1e8b7f" />
+
+---
+
+## Project Structure
+
+```
+BussinBurgers/
+│
+├─ src/
+│   └─ main/
+│       └─ java/
+│           └─ com/
+│               └─ bussinburgers/
+│                   ├─ Main.java                
+│                   │
+│                   ├─ models/                 
+│                   │   ├─ MenuItem.java        
+│                   │   ├─ Burger.java
+│                   │   ├─ Drink.java
+│                   │   ├─ Side.java            
+│                   │   └─ Order.java
+│                   │
+│                   ├─ models/enums/          
+│                   │   ├─ BunType.java
+│                   │   ├─ DrinkType.java
+│                   │   ├─ DrinkSize.java
+│                   │   ├─ RegularTopping.java
+│                   │   └─ PremiumTopping.java
+│                   │
+│                   ├─ ui/                       
+│                   │   └─ UserInterface.java
+│                   │
+│                   └─ util/                     
+│                       ├─ ReceiptWriter.java
+│                       └─ TimeUtil.java
+│
+├─ receipts/                                     
+│
+├─ README.md                                    
+├─ .gitignore                                    
+└─ pom.xml
+```
+
+---
+
+## Usage Guide
+
+### Screen Navigation
+
+```
+Home Screen
+    ↓
+    1) New Order
+    ↓
+Order Screen
+    ↓
+    ├─ 1) Add Burger → [Customization Wizard]
+    ├─ 2) Add Drink → [Size & Type Selection]
+    ├─ 3) Add Side → [Type Selection]
+    ├─ 4) Checkout → [Confirmation & Receipt]
+    └─ 0) Cancel Order
+```
+
+### Example Order Session
+
+```
+1. Start Application
+2. Select "1) New Order"
+3. Select "1) Add Burger"
+   - Choose Regular
+   - Add Lettuce
+   - Add Tomato
+   - Add Onions
+   - Add Cheese, Bacon
+   - Add bussin sauce
+4. Select "2) Add Drink"
+   - Choose Coca-Cola
+   - Choose Large size
+5. Select "4) Checkout"
+6. Confirm Order
+7. Receipt saved to receipts/20231114-143052.txt
+```
+## Picture showcase of App
+
+<img width="362" height="236" alt="image" src="https://github.com/user-attachments/assets/4a63d41a-7eb5-49f9-a45b-6ec6ca4d20cb" />
+
+--
+
+<img width="187" height="167" alt="image" src="https://github.com/user-attachments/assets/a77e572e-b2af-46de-9ead-be054bd058fd" />
+
+--
+
+<img width="231" height="111" alt="image" src="https://github.com/user-attachments/assets/7afde9d7-672b-4f0a-ad53-da372068fc27" />
+
+--
+
+<img width="369" height="381" alt="image" src="https://github.com/user-attachments/assets/84dbfcb5-4b33-4e84-874a-e9d85e9ca340" />
+
+--
+
+<img width="351" height="209" alt="image" src="https://github.com/user-attachments/assets/42c94be0-dcbb-443e-99ab-c289412fdbb8" />
+
+---
 ## 🧾 Receipt Example
 ```
         Bussin Burgers
@@ -59,22 +178,4 @@ Total: $9.00
 Thank you for dining with us!
 Visit us at bussinburgers.com
 ```
-
----
-
-## 🚀 Getting Started
-
-1. Clone the repository:  
-   ```bash
-   git clone https://github.com/<your-username>/bussin-burgers.git
-2. Open the project in IntelliJ IDEA or any Java IDE
-3. Run the Main class
-4. Follow on-screen prompts to create orders
-
----
-## System Design
-
-### Class Diagram
-
-<img width="1080" height="720" alt="image" src="https://github.com/user-attachments/assets/b192743c-79f3-448e-a9a2-94a0dd1e8b7f" />
 
