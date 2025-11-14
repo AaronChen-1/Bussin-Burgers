@@ -1,24 +1,36 @@
 package com.bussinburgers.models.items;
 
 public class Drink extends MenuItem {
-    private Size size;
 
-    public Drink(String name, Size size) {
-        super(name);
+    public enum DrinkSize {
+        SMALL, MEDIUM, LARGE //Small drink will be defaulted maybe change later
+    }
+
+    private DrinkSize size;
+
+    public Drink(DrinkSize size) {
+        super("Drink", 1.50);
         this.size = size;
     }
 
     @Override
     public double getPrice() {
-        return switch(size) {
-            case SMALL -> 1.50;
-            case MEDIUM -> 2.00;
-            case LARGE -> 2.50;
-        };
+        double price = basePrice;
+
+        switch (size) {
+            case MEDIUM:
+                price += 0.75;
+                break;
+            case LARGE:
+                price += 1.50;
+                break;
+        }
+
+        return price;
     }
 
     @Override
-    public String toString() {
-        return size + " " + name + " - $" + getPrice();
+    public String getDescription() {
+        return size + " Drink - $" + String.format("%.2f", getPrice()) + "\n";
     }
 }
