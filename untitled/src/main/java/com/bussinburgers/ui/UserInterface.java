@@ -87,6 +87,8 @@ public class UserInterface {
 
         order.addItem(burger);
         System.out.println("Burger added!");
+
+        suggestCombo(order);
     }
 
     private void addRegularToppings(Burger burger) {
