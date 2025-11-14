@@ -6,7 +6,16 @@ public class Drink extends MenuItem {
         SMALL, MEDIUM, LARGE //Small drink will be defaulted maybe change later
     }
 
+    public enum DrinkType {
+        COLA,
+        LEMONADE,
+        WATER,
+        ICED_TEA
+    }
+
+
     private DrinkSize size;
+    private DrinkType type;
 
     public Drink(DrinkSize size) {
         super("Drink", 1.50);
@@ -32,5 +41,13 @@ public class Drink extends MenuItem {
     @Override
     public String getDescription() {
         return size + " Drink - $" + String.format("%.2f", getPrice()) + "\n";
+    }
+
+    public DrinkSize getSize() {
+        return size;
+    }
+
+    public DrinkType getType() {
+        return type;
     }
 }

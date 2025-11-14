@@ -138,6 +138,14 @@ public class UserInterface {
     }
 
     private void addDrink(Order order) {
+
+        System.out.println("\n--- Choose Drink Type ---");
+        for (Drink.DrinkType type : Drink.DrinkType.values()) {
+            System.out.println("- " + type);
+        }
+        System.out.print("Enter type: ");
+        Drink.DrinkType type = Drink.DrinkType.valueOf(scanner.next().toUpperCase());
+
         System.out.println("\n--- Choose Drink Size ---");
         for (Drink.DrinkSize size : Drink.DrinkSize.values()) {
             System.out.println("- " + size);
