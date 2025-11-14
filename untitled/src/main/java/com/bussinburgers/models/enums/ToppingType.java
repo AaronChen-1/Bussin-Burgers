@@ -1,5 +1,5 @@
-package com.bussinburgers.models.enums;
-
-public enum ToppingType {
-    STANDARD, PREMIUM, EXTRA
-}
+//package com.bussinburgers.models.enums;
+//
+//public enum ToppingType {
+//    STANDARD, PREMIUM, EXTRA
+//}
