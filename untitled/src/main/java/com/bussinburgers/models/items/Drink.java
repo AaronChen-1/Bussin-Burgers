@@ -82,7 +82,7 @@ public class Drink extends MenuItem {
     @Override
     public String getDescription() {
         return size.getDisplayName() + " " + type.getDisplayName()
-                + " - $" + String.format("%.2f", getPrice()) ;
+                + " - $" + String.format("%.2f", getPrice()) + "\n";
     }
 
     // --------------------------
