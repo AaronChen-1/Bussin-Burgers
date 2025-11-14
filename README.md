@@ -178,4 +178,54 @@ Total: $9.00
 Thank you for dining with us!
 Visit us at bussinburgers.com
 ```
+---
 
+# Interesting Code Highlights
+
+
+
+### 1.Combo suggester 
+This app features a way to recommend a drink or side if the user only added a burger. This makes sense right after the user adds a burger, since combos usually revolve around burgers.
+
+```
+    private void suggestCombo(Order order) {
+        boolean hasBurger = order.getItems().stream().anyMatch(i -> i instanceof Burger);
+        boolean hasDrinkOrSide = order.getItems().stream().anyMatch(i -> i instanceof Drink || i instanceof Side);
+
+        if (hasBurger && !hasDrinkOrSide) {
+            System.out.println("\n Suggestion: Add a drink or side to make it a complete combo!");
+        }
+    }
+```
+
+### 2. Calorie window
+This shows the user how much calories right before the order whether they want to check out or cancel and retry.
+
+```
+    private void showCalories(Order order) {
+        System.out.println("\n̶=̶=̶=̶ CALORIE SUMMARY ̶=̶=̶=̶ ̶=̶=̶=̶ ̶=̶=̶=̶");
+        for (MenuItem item : order.getItems()) {
+            if (item instanceof Burger burger) {
+                int totalCalories = 0;
+
+                for (RegularTopping rt : burger.getRegularToppings()) {
+                    totalCalories += rt.getCalories();
+                }
+
+                for (PremiumTopping pt : burger.getPremiumToppings()) {
+                    totalCalories += pt.getCalories();
+                }
+
+                // Display burger summary with calories
+                System.out.println("Burger - Total Calories " + totalCalories);
+            } else if (item instanceof Drink drink) {
+                System.out.println(drink.getDescription().trim()
+                        + " - " + drink.getCalories() + " cal");
+            } else if (item instanceof Side side) {
+                System.out.println(side.getDescription().trim()
+                        + " - " + side.getType().getCalories() + " cal");
+            }
+        }
+        System.out.println("=̶=̶=̶=̶̶=̶=̶=̶=̶̶=̶=̶=̶=̶̶=̶=̶=̶=̶̶=̶=̶=̶=̶=̶=̶ ̶=̶=̶=̶ ̶=̶=̶=̶");
+    }
+```
