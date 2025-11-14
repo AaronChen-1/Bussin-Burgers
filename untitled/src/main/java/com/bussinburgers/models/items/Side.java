@@ -1,4 +1,4 @@
-package com.bussinburgers;
+package com.bussinburgers.models.items;
 
 public class Side extends MenuItem {
     public Side(String name, double basePrice) {

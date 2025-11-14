@@ -1,5 +1,7 @@
 package com.bussinburgers;
 
+import com.bussinburgers.models.items.MenuItem;
+
 import java.util.ArrayList;
 
 public class Order {

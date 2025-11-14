@@ -1,4 +1,4 @@
-package com.bussinburgers.enums;
+package com.bussinburgers.models.enums;
 
 public enum PremiumTopping {
     CHEESE(0.75),

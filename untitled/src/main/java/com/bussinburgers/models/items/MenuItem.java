@@ -1,4 +1,4 @@
-package com.bussinburgers;
+package com.bussinburgers.models.items;
 
 public abstract class MenuItem {
     protected String name;

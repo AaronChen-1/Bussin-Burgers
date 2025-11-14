@@ -1,5 +1,7 @@
 package com.bussinburgers;
 
+import com.bussinburgers.models.items.MenuItem;
+
 public class OrderItem {
     private final MenuItem item;
     private final int quantity;

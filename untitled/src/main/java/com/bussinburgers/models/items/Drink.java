@@ -1,6 +1,7 @@
-package com.bussinburgers;
+package com.bussinburgers.models.items;
 
-import com.bussinburgers.enums.*;
+import com.bussinburgers.models.enums.DrinkType;
+import com.bussinburgers.models.enums.Size;
 
 public class Drink extends MenuItem {
     private DrinkType drinkType;
