@@ -1,0 +1,18 @@
+        Bussin Burgers
+The Ultimate Burger Experience 
+----------------------------------
+Order ID: 20251114-064950
+Date/Time: 2025-11-14 06:46:41
+----------------------------------
+Order Items:
+1) Burger (Regular Bun)
+Regular Toppings: Lettuce Tomato Onions 
+Premium Toppings: Cheese Bacon 
+Special Option Included
+Price: $8.25
+2) Large Coca Cola - $2.50
+----------------------------------
+Total: $10.75
+
+Thank you for dining with us!
+Visit us at bussinburgers.com

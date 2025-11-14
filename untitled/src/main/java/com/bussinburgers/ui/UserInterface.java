@@ -268,12 +268,46 @@ public class UserInterface {
     }
 
     private void displayCurrentOrder(Order order) {
-        System.out.println("\n--- Current Order ---");
+        System.out.println("\n̶=̶=̶=̶=̶ Current Order ̶=̶=̶=̶=̶");
         for (MenuItem item : order.getItems()) {
             System.out.println(item.getDescription());
         }
-        System.out.println("-------------------");
+        System.out.println("̶=̶=̶=̶=̶̶=̶=̶=̶=̶̶=̶=̶=̶=̶̶=̶=̶=̶=̶̶=̶=̶=̶=̶");
+    }
+    private void showCalories(Order order) {
+        System.out.println("\n̶=̶=̶=̶ CALORIE SUMMARY ̶=̶=̶=̶");
+        for (MenuItem item : order.getItems()) {
+            if (item instanceof Burger burger) {
+                int totalCalories = 0;
+
+                for (RegularTopping rt : burger.getRegularToppings()) {
+                    totalCalories += rt.getCalories();
+                }
+
+                for (PremiumTopping pt : burger.getPremiumToppings()) {
+                    totalCalories += pt.getCalories();
+                }
+
+                // Display burger summary with calories
+                System.out.println("Burger - Total Calories (toppings only): " + totalCalories);
+            } else if (item instanceof Drink drink) {
+                System.out.println(drink.getDescription().trim()
+                        + " - " + drink.getCalories() + " cal");
+            } else if (item instanceof Side side) {
+                System.out.println(side.getDescription().trim()
+                        + " - " + side.getType().getCalories() + " cal");
+            }
+        }
+        System.out.println("=̶=̶=̶=̶̶=̶=̶=̶=̶̶=̶=̶=̶=̶̶=̶=̶=̶=̶̶=̶=̶=̶=̶=̶=̶");
     }
 
+    private void suggestCombo(Order order) {
+        boolean hasBurger = order.getItems().stream().anyMatch(i -> i instanceof Burger);
+        boolean hasDrinkOrSide = order.getItems().stream().anyMatch(i -> i instanceof Drink || i instanceof Side);
+
+        if (hasBurger && !hasDrinkOrSide) {
+            System.out.println("\n Suggestion: Add a drink or side to make it a complete combo!");
+        }
+    }
 
 }
