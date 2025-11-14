@@ -1,20 +1,20 @@
 package com.bussinburgers.models.enums;
 
 public enum RegularTopping {
-    LETTUCE("Lettuce"),
-    TOMATO("Tomato"),
-    PICKLES("Pickles"),
-    ONIONS("Onions"),
-    GRILLED_ONIONS("Grilled Onions"),
-    JALAPENOS("Jalapenos");
+    LETTUCE(5),
+    TOMATO(10),
+    PICKLES(5),
+    ONIONS(10),
+    GRILLED_ONIONS(15),
+    JALAPENOS(5);
 
-    private final String displayName;
-    RegularTopping(String displayName) {
-        this.displayName = displayName;
+    private final int calories;
+
+    RegularTopping(int calories) {
+        this.calories = calories;
     }
 
-    @Override
-    public String toString() {
-        return displayName;
+    public int getCalories() {
+        return calories;
     }
 }

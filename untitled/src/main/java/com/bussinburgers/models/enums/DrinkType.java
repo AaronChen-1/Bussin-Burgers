@@ -1,18 +1,18 @@
 package com.bussinburgers.models.enums;
 
 public enum DrinkType {
-    COLA("Cola"),
-    LEMONADE("Lemonade"),
-    WATER("Water"),
-    ICED_TEA("Iced Tea");
+    COLA(150),
+    LEMONADE(120),
+    WATER(0),
+    ICED_TEA(80);
 
-    private final String displayName;
-    DrinkType(String displayName) {
-        this.displayName = displayName;
+    private final int calories;
+
+    DrinkType(int calories) {
+        this.calories = calories;
     }
 
-    @Override
-    public String toString() {
-        return displayName;
+    public int getCalories() {
+        return calories;
     }
 }

@@ -1,17 +1,17 @@
 package com.bussinburgers.models.enums;
 
 public enum SideType {
-    FRIES("Fries"),
-    CHEESE_FRIES("Cheese Fries"),
-    ONION_RINGS("Onion Rings");
+    FRIES(300),
+    CHEESE_FRIES(400),
+    ONION_RINGS(350);
 
-    private final String displayName;
-    SideType(String displayName) {
-        this.displayName = displayName;
+    private final int calories;
+
+    SideType(int calories) {
+        this.calories = calories;
     }
 
-    @Override
-    public String toString() {
-        return displayName;
+    public int getCalories() {
+        return calories;
     }
 }

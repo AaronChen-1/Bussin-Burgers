@@ -1,17 +1,17 @@
 package com.bussinburgers.models.enums;
 
 public enum BunType {
-    REGULAR("Regular"),
-    WHOLE_WHEAT("Whole Wheat"),
-    LETTUCE_WRAP("Lettuce Wrap");
+    REGULAR(150),
+    WHOLE_WHEAT(140),
+    LETTUCE_WRAP(50);
 
-    private final String displayName;
-    BunType(String displayName) {
-        this.displayName = displayName;
+    private final int calories;
+
+    BunType(int calories) {
+        this.calories = calories;
     }
-    @Override
-    public String toString() {
-        return displayName;
+
+    public int getCalories() {
+        return calories;
     }
 }
-

@@ -1,18 +1,18 @@
 package com.bussinburgers.models.enums;
 
 public enum PremiumTopping {
-    CHEESE("Cheese"),
-    BACON("Bacon"),
-    AVOCADO("Avocado"),
-    EXTRA_PATTY("Extra Patty");
+    CHEESE(100),
+    BACON(150),
+    AVOCADO(80),
+    EXTRA_PATTY(250);
 
-    private final String displayName;
-    PremiumTopping(String displayName) {
-        this.displayName = displayName;
+    private final int calories;
+
+    PremiumTopping(int calories) {
+        this.calories = calories;
     }
 
-    @Override
-    public String toString() {
-        return displayName; }
+    public int getCalories() {
+        return calories;
+    }
 }
-

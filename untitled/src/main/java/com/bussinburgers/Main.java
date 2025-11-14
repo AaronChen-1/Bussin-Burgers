@@ -4,6 +4,7 @@ import com.bussinburgers.ui.UserInterface;
 
 public class Main {
     public static void main(String[] args) {
+        printWelcomeBanner();
         UserInterface ui = new UserInterface();
         ui.start();
     }
