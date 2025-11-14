@@ -16,7 +16,7 @@ Customers can create personalized orders with burgers, drinks, and sides, includ
   - Premium toppings (extra cost)  
   - Special options (e.g., toasted bun)  
 - Add drinks with size options (Small, Medium, Large)  
-- Add sides (e.g., chips, garlic knots)
+- Add sides (Fries, Onion Rings)
 
 ### Order Management
 - Validates orders (must contain at least 1 item)  
