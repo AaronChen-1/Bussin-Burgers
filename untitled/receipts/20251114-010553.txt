@@ -1,0 +1,16 @@
+===== BUSSIN BURGERS RECEIPT =====
+
+Burger (Regular Bun)
+Regular Toppings: Grilled Onions 
+Premium Toppings: Extra Patty 
+Price: $5.50
+
+iced tea (large) - $3.00
+
+CHEESE_FRIES - $3.00
+
+ONION_RINGS - $3.50
+
+----------------------------------
+TOTAL: $15.00
+Thank you for eating at Bussin Burgers!

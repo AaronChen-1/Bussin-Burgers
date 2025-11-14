@@ -54,7 +54,7 @@ public class UserInterface {
                         System.out.println("\nOrder must contain at least 1 item (burger, drink, or side).");
                         break;
                     }
-                    checkout(order);           // summary
+                    checkout(order);
                     return;
                 }
                 case 5 -> {
@@ -66,19 +66,14 @@ public class UserInterface {
         }
     }
 
-    // Add burger
+    // ===================== ADD BURGER =====================
     private void addBurger(Order order) {
-
-        // Choose Type of bun
         BunType bun = chooseFromEnum(BunType.values(), "Choose Bun Type");
+        Burger burger = new Burger(bun);
 
-        Burger burger = new Burger(bun);  // fixed size
-
-        // Add Toppings
         addRegularToppings(burger);
         addPremiumToppings(burger);
 
-        // Special option
         System.out.print("\nAdd special option (toasted/animal)? (y/n): ");
         if (scanner.next().equalsIgnoreCase("y")) {
             burger.setSpecialOption(true);
@@ -86,21 +81,25 @@ public class UserInterface {
 
         order.addItem(burger);
         System.out.println("Burger added!");
+        displayCurrentOrder(order); // Show current order after burger added
     }
 
     private void addRegularToppings(Burger burger) {
         RegularTopping[] toppings = RegularTopping.values();
-
         System.out.println("\n--- Add Regular Toppings (FREE) ---");
-
-        // Changed to only print menu once (temp)
         for (int i = 0; i < toppings.length; i++) {
             System.out.println((i + 1) + ") " + formatEnumName(toppings[i].name()));
         }
         System.out.println("0) Done");
 
         while (true) {
-            System.out.println("\nSelected regular toppings: " + burger.getRegularToppings());
+            if (!burger.getRegularToppings().isEmpty()) {
+                System.out.print("Selected: ");
+                for (RegularTopping t : burger.getRegularToppings()) {
+                    System.out.print(formatEnumName(t.name()) + " ");
+                }
+                System.out.println();
+            }
 
             System.out.print("Enter choice: ");
             int choice = readInt();
@@ -108,27 +107,34 @@ public class UserInterface {
             if (choice == 0) break;
 
             if (choice >= 1 && choice <= toppings.length) {
-                burger.addRegularTopping(toppings[choice - 1]);
+                RegularTopping selected = toppings[choice - 1];
+                if (!burger.getRegularToppings().contains(selected)) {
+                    burger.addRegularTopping(selected);
+                } else {
+                    System.out.println(formatEnumName(selected.name()) + " already added.");
+                }
             } else {
                 System.out.println("Invalid choice.");
             }
         }
     }
 
-    // ===================== PREMIUM TOPPINGS
     private void addPremiumToppings(Burger burger) {
         PremiumTopping[] toppings = PremiumTopping.values();
-
         System.out.println("\n--- Add Premium Toppings ($1.50 each) ---");
-
-        // Print menu once
         for (int i = 0; i < toppings.length; i++) {
             System.out.println((i + 1) + ") " + formatEnumName(toppings[i].name()));
         }
         System.out.println("0) Done");
 
         while (true) {
-            System.out.println("\nSelected premium toppings: " + burger.getPremiumToppings());
+            if (!burger.getPremiumToppings().isEmpty()) {
+                System.out.print("Selected: ");
+                for (PremiumTopping t : burger.getPremiumToppings()) {
+                    System.out.print(formatEnumName(t.name()) + " ");
+                }
+                System.out.println();
+            }
 
             System.out.print("Enter choice: ");
             int choice = readInt();
@@ -136,58 +142,55 @@ public class UserInterface {
             if (choice == 0) break;
 
             if (choice >= 1 && choice <= toppings.length) {
-                burger.addPremiumTopping(toppings[choice - 1]);
+                PremiumTopping selected = toppings[choice - 1];
+                if (!burger.getPremiumToppings().contains(selected)) {
+                    burger.addPremiumTopping(selected);
+                } else {
+                    System.out.println(formatEnumName(selected.name()) + " already added.");
+                }
             } else {
                 System.out.println("Invalid choice.");
             }
         }
     }
 
-    //  ADD DRINK(S)
+    // ===================== ADD DRINK =====================
     private void addDrink(Order order) {
-
-        // Choose Drink Type
-        Drink.DrinkType type = chooseFromEnum(Drink.DrinkType.values(), "Choose Drink Type");
-
-        // Choose Drink Size
+        DrinkType type = chooseFromEnum(DrinkType.values(), "Choose Drink Type");
         Drink.DrinkSize size = chooseFromEnum(Drink.DrinkSize.values(), "Choose Drink Size");
 
         Drink drink = new Drink(type, size);
         order.addItem(drink);
-
         System.out.println("Drink added!");
+        displayCurrentOrder(order);
     }
 
-    // ADD SIDE
+    // ===================== ADD SIDE =====================
     private void addSide(Order order) {
-
-        // Choose Side Type
         Side.SideType type = chooseFromEnum(Side.SideType.values(), "Choose Side");
-
         Side side = new Side(type);
         order.addItem(side);
-
         System.out.println("Side added!");
+        displayCurrentOrder(order);
     }
 
-    // CHECKOUT
+    // ===================== CHECKOUT =====================
     private void checkout(Order order) {
         System.out.println("\n===== ORDER SUMMARY =====");
-        System.out.println(order.getReceiptText()); // Show all items and prices
+        System.out.println(order.getReceiptText());
 
         System.out.print("Complete order? (y/n): ");
         if (scanner.next().equalsIgnoreCase("y")) {
-            ReceiptWriter.writeReceipt(order.getReceiptText()); // Saves to receipts folder
+            ReceiptWriter.writeReceipt(order.getReceiptText());
             System.out.println("Order completed!");
         } else {
             System.out.println("Order not completed.");
         }
     }
 
-    // HELPER METHODS
+    // ===================== HELPER METHODS =====================
     private <T extends Enum<T>> T chooseFromEnum(T[] values, String prompt) {
         System.out.println("\n--- " + prompt + " ---");
-
         for (int i = 0; i < values.length; i++) {
             System.out.println((i + 1) + ") " + formatEnumName(values[i].name()));
         }
@@ -199,17 +202,15 @@ public class UserInterface {
             if (choice >= 1 && choice <= values.length) break;
             System.out.println("Invalid choice. Try again.");
         }
-
         return values[choice - 1];
     }
 
-    // Convert enum like "WHOLE_WHEAT" -> "Whole Wheat"
+    // Formats enum names like "GRILLED_ONIONS" -> "Grilled Onions"
     private String formatEnumName(String name) {
         String formatted = name.replace("_", " ").toLowerCase();
-        return formatted.substring(0,1).toUpperCase() + formatted.substring(1);
+        return formatted.substring(0, 1).toUpperCase() + formatted.substring(1);
     }
 
-    // SAFE INPUT
     private int readInt() {
         while (!scanner.hasNextInt()) {
             System.out.println("Enter a valid number.");
@@ -218,4 +219,20 @@ public class UserInterface {
         return scanner.nextInt();
     }
 
+    // ===================== DISPLAY CURRENT ORDER =====================
+    private void displayCurrentOrder(Order order) {
+        if (order.getItems().isEmpty()) return;
+
+        System.out.println("\n--- Current Order ---");
+        int count = 1;
+        double total = 0;
+        for (var item : order.getItems()) {
+            System.out.println(count + ") " + item.getDescription());
+            total += item.getPrice();
+            count++;
+        }
+        System.out.println("--------------------");
+        System.out.println("Current total: $" + String.format("%.2f", total));
+        System.out.println("--------------------\n");
+    }
 }

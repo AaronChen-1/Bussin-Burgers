@@ -1,20 +1,13 @@
 package com.bussinburgers.models.items;
 
+import com.bussinburgers.models.enums.DrinkType;
+
 public class Drink extends MenuItem {
 
-    public enum DrinkSize {
-        SMALL, MEDIUM, LARGE
-    }
+    public enum DrinkSize { SMALL, MEDIUM, LARGE }
 
-    public enum DrinkType {
-        COLA,
-        LEMONADE,
-        WATER,
-        ICED_TEA
-    }
-
-    private DrinkSize size;
     private DrinkType type;
+    private DrinkSize size;
 
     public Drink(DrinkType type, DrinkSize size) {
         super("Drink", 1.50);
@@ -25,30 +18,29 @@ public class Drink extends MenuItem {
     @Override
     public double getPrice() {
         double price = basePrice;
-
         switch (size) {
             case MEDIUM -> price += 0.75;
             case LARGE -> price += 1.50;
+            default -> {}
         }
-
         return price;
     }
 
     @Override
     public String getDescription() {
-        return format(type) + " (" + format(size) + ") - $" +
-                String.format("%.2f", getPrice()) + "\n";
+        return formatEnumName(size.name()) + " " + formatEnumName(type.name()) + " - $" + String.format("%.2f", getPrice()) + "\n";
     }
 
-    private String format(Enum<?> e) {
-        return e.name().toLowerCase().replace("_", " ");
+    public DrinkSize getSize() { return size; }
+    public DrinkType getType() { return type; }
+
+    private String formatEnumName(String name) {
+        String formatted = name.replace("_", " ").toLowerCase();
+        return formatted.substring(0,1).toUpperCase() + formatted.substring(1);
     }
 
-    public DrinkSize getSize() {
-        return size;
-    }
-
-    public DrinkType getType() {
-        return type;
+    @Override
+    public String toString() {
+        return formatEnumName(size.name()) + " " + formatEnumName(type.name());
     }
 }

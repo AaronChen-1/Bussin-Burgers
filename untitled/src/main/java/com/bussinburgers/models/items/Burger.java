@@ -30,6 +30,7 @@ public class Burger extends MenuItem {
     public void setSpecialOption(boolean specialOption) {
         this.specialOption = specialOption;
     }
+
     @Override
     public double getPrice() {
         double price = basePrice;
@@ -41,17 +42,17 @@ public class Burger extends MenuItem {
     @Override
     public String getDescription() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Burger (").append(bunType).append(" Bun)\n");
+        sb.append("Burger (").append(formatEnumName(bunType.name())).append(" Bun)\n");
 
         if (!regularToppings.isEmpty()) {
             sb.append("Regular Toppings: ");
-            for (RegularTopping t : regularToppings) sb.append(t).append(" ");
+            for (RegularTopping t : regularToppings) sb.append(formatEnumName(t.name())).append(" ");
             sb.append("\n");
         }
 
         if (!premiumToppings.isEmpty()) {
             sb.append("Premium Toppings: ");
-            for (PremiumTopping t : premiumToppings) sb.append(t).append(" ");
+            for (PremiumTopping t : premiumToppings) sb.append(formatEnumName(t.name())).append(" ");
             sb.append("\n");
         }
 
@@ -61,14 +62,12 @@ public class Burger extends MenuItem {
         return sb.toString();
     }
 
-//    public BunType getBunType() { return bunType; }
-//    public boolean hasSpecialOption() { return specialOption; }
+    public List<RegularTopping> getRegularToppings() { return regularToppings; }
+    public List<PremiumTopping> getPremiumToppings() { return premiumToppings; }
 
-    public List<RegularTopping> getRegularToppings() {
-        return regularToppings;
-    }
-
-    public List<PremiumTopping> getPremiumToppings() {
-        return premiumToppings;
+    // Helper to format enums nicely
+    private String formatEnumName(String name) {
+        String formatted = name.replace("_", " ").toLowerCase();
+        return formatted.substring(0, 1).toUpperCase() + formatted.substring(1);
     }
 }
