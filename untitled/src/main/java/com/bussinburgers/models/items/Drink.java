@@ -31,16 +31,13 @@ public class Drink extends MenuItem {
         return formatEnumName(size.name()) + " " + formatEnumName(type.name()) + " - $" + String.format("%.2f", getPrice()) + "\n";
     }
 
-    public DrinkSize getSize() { return size; }
-    public DrinkType getType() { return type; }
+    @Override
+    public String toString() {
+        return formatEnumName(size.name()) + " " + formatEnumName(type.name());
+    }
 
     private String formatEnumName(String name) {
         String formatted = name.replace("_", " ").toLowerCase();
         return formatted.substring(0,1).toUpperCase() + formatted.substring(1);
-    }
-
-    @Override
-    public String toString() {
-        return formatEnumName(size.name()) + " " + formatEnumName(type.name());
     }
 }
