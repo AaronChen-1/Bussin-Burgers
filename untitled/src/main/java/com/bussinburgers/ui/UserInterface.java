@@ -49,7 +49,14 @@ public class UserInterface {
                 case 1 -> addBurger(order);
                 case 2 -> addDrink(order);
                 case 3 -> addSide(order);
-                case 4 -> checkout(order);
+                case 4 -> {
+                    if (!order.isValid()) {
+                        System.out.println("\nOrder must contain at least 1 item (burger, drink, or side).");
+                        break;
+                    }
+                    checkout(order);           // summary
+                    return;
+                }
                 case 5 -> {
                     System.out.println("Order cancelled.");
                     return;
@@ -59,27 +66,19 @@ public class UserInterface {
         }
     }
 
+    // Add burger
     private void addBurger(Order order) {
-//        System.out.println("\n--- Choose Size ---");
-//        for (BurgerSize size : BurgerSize.values()) {
-//            System.out.println("- " + size);
-//        }
-//        System.out.print("Enter size: ");
-//        BurgerSize size = BurgerSize.valueOf(scanner.next().toUpperCase());
 
-        System.out.println("\n--- Choose Bun Type ---");
-        for (BunType bun : BunType.values()) {
-            System.out.println("- " + bun);
-        }
-        System.out.print("Enter bun: ");
-        BunType bun = BunType.valueOf(scanner.next().toUpperCase());
+        // Choose Type of bun
+        BunType bun = chooseFromEnum(BunType.values(), "Choose Bun Type");
 
-//        Burger burger = new Burger(size, bun);
-        Burger burger = new Burger(bun);
+        Burger burger = new Burger(bun);  // fixed size
 
+        // Add Toppings
         addRegularToppings(burger);
         addPremiumToppings(burger);
 
+        // Special option
         System.out.print("\nAdd special option (toasted/animal)? (y/n): ");
         if (scanner.next().equalsIgnoreCase("y")) {
             burger.setSpecialOption(true);
@@ -90,69 +89,68 @@ public class UserInterface {
     }
 
     private void addRegularToppings(Burger burger) {
+        RegularTopping[] toppings = RegularTopping.values();
+
         System.out.println("\n--- Add Regular Toppings (FREE) ---");
-        System.out.println("Type 'done' to finish.");
 
-        for (RegularTopping t : RegularTopping.values()) {
-            System.out.println("- " + t);
+        // Changed to only print menu once (temp)
+        for (int i = 0; i < toppings.length; i++) {
+            System.out.println((i + 1) + ") " + formatEnumName(toppings[i].name()));
         }
+        System.out.println("0) Done");
 
         while (true) {
-            System.out.print("Add topping: ");
-            String input = scanner.next();
+            System.out.println("\nSelected regular toppings: " + burger.getRegularToppings());
 
-            if (input.equalsIgnoreCase("done"))
-                break;
+            System.out.print("Enter choice: ");
+            int choice = readInt();
 
-            try {
-                RegularTopping topping = RegularTopping.valueOf(input.toUpperCase());
-                burger.addRegularTopping(topping);
-            } catch (Exception e) {
-                System.out.println("Invalid topping.");
+            if (choice == 0) break;
+
+            if (choice >= 1 && choice <= toppings.length) {
+                burger.addRegularTopping(toppings[choice - 1]);
+            } else {
+                System.out.println("Invalid choice.");
             }
         }
     }
 
+    // PREMIUM TOPPINGS
     private void addPremiumToppings(Burger burger) {
-        System.out.println("\n--- Add Premium Toppings ($1.50 each) ---");
-        System.out.println("Type 'done' to finish.");
+        PremiumTopping[] toppings = PremiumTopping.values();
 
-        for (PremiumTopping t : PremiumTopping.values()) {
-            System.out.println("- " + t);
+        System.out.println("\n--- Add Premium Toppings ($1.50 each) ---");
+
+        // Print menu once
+        for (int i = 0; i < toppings.length; i++) {
+            System.out.println((i + 1) + ") " + formatEnumName(toppings[i].name()));
         }
+        System.out.println("0) Done");
 
         while (true) {
-            System.out.print("Add topping: ");
-            String input = scanner.next();
+            System.out.println("\nSelected premium toppings: " + burger.getPremiumToppings());
 
-            if (input.equalsIgnoreCase("done"))
-                break;
+            System.out.print("Enter choice: ");
+            int choice = readInt();
 
-            try {
-                PremiumTopping topping = PremiumTopping.valueOf(input.toUpperCase());
-                burger.addPremiumTopping(topping);
-            } catch (Exception e) {
-                System.out.println("Invalid premium topping.");
+            if (choice == 0) break;
+
+            if (choice >= 1 && choice <= toppings.length) {
+                burger.addPremiumTopping(toppings[choice - 1]);
+            } else {
+                System.out.println("Invalid choice.");
             }
         }
     }
 
+    //  ADD DRINK(S)
     private void addDrink(Order order) {
 
-        System.out.println("\n--- Choose Drink Type ---");
-        for (Drink.DrinkType type : Drink.DrinkType.values()) {
-            System.out.println("- " + type);
-        }
-        System.out.print("Enter type: ");
-        Drink.DrinkType type = Drink.DrinkType.valueOf(scanner.next().toUpperCase());
+        // Choose Drink Type
+        Drink.DrinkType type = chooseFromEnum(Drink.DrinkType.values(), "Choose Drink Type");
 
-        System.out.println("\n--- Choose Drink Size ---");
-        for (Drink.DrinkSize size : Drink.DrinkSize.values()) {
-            System.out.println("- " + size);
-        }
-
-        System.out.print("Enter size: ");
-        Drink.DrinkSize size = Drink.DrinkSize.valueOf(scanner.next().toUpperCase());
+        // Choose Drink Size
+        Drink.DrinkSize size = chooseFromEnum(Drink.DrinkSize.values(), "Choose Drink Size");
 
         Drink drink = new Drink(size);
         order.addItem(drink);
@@ -160,14 +158,11 @@ public class UserInterface {
         System.out.println("Drink added!");
     }
 
+    // ADD SIDE
     private void addSide(Order order) {
-        System.out.println("\n--- Choose Side ---");
-        for (Side.SideType type : Side.SideType.values()) {
-            System.out.println("- " + type);
-        }
 
-        System.out.print("Enter side: ");
-        Side.SideType type = Side.SideType.valueOf(scanner.next().toUpperCase());
+        // Choose Side Type
+        Side.SideType type = chooseFromEnum(Side.SideType.values(), "Choose Side");
 
         Side side = new Side(type);
         order.addItem(side);
@@ -175,22 +170,46 @@ public class UserInterface {
         System.out.println("Side added!");
     }
 
+    // CHECKOUT
     private void checkout(Order order) {
-        if (!order.isValid()) {
-            System.out.println("\nOrder must contain at least 1 item.");
-            return;
-        }
-
         System.out.println("\n===== ORDER SUMMARY =====");
-        System.out.println(order.getReceiptText());
+        System.out.println(order.getReceiptText()); // Show all items and prices
 
         System.out.print("Complete order? (y/n): ");
         if (scanner.next().equalsIgnoreCase("y")) {
-            ReceiptWriter.writeReceipt(order.getReceiptText());
+            ReceiptWriter.writeReceipt(order.getReceiptText()); // Saves to receipts folder
             System.out.println("Order completed!");
+        } else {
+            System.out.println("Order not completed.");
         }
     }
 
+    // HELPER METHODS
+    private <T extends Enum<T>> T chooseFromEnum(T[] values, String prompt) {
+        System.out.println("\n--- " + prompt + " ---");
+
+        for (int i = 0; i < values.length; i++) {
+            System.out.println((i + 1) + ") " + formatEnumName(values[i].name()));
+        }
+
+        int choice;
+        while (true) {
+            System.out.print("Enter choice number: ");
+            choice = readInt();
+            if (choice >= 1 && choice <= values.length) break;
+            System.out.println("Invalid choice. Try again.");
+        }
+
+        return values[choice - 1];
+    }
+
+    // Convert enum like "WHOLE_WHEAT" -> "Whole Wheat"
+    private String formatEnumName(String name) {
+        String formatted = name.replace("_", " ").toLowerCase();
+        return formatted.substring(0,1).toUpperCase() + formatted.substring(1);
+    }
+
+    // SAFE INPUT
     private int readInt() {
         while (!scanner.hasNextInt()) {
             System.out.println("Enter a valid number.");
@@ -198,4 +217,5 @@ public class UserInterface {
         }
         return scanner.nextInt();
     }
+
 }

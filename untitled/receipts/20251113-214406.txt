@@ -1,0 +1,15 @@
+===== BUSSIN BURGERS RECEIPT =====
+
+Burger (LETTUCE_WRAP Bun)
+Regular Toppings: LETTUCE TOMATO PICKLES ONIONS GRILLED_ONIONS JALAPENOS 
+Premium Toppings: CHEESE BACON AVOCADO EXTRA_PATTY EXTRA_PATTY 
+Special Option Included
+Price: $12.75
+
+MEDIUM Drink - $2.25
+
+FRIES - $2.00
+
+----------------------------------
+TOTAL: $17.00
+Thank you for eating at Bussin Burgers!

@@ -1,0 +1,12 @@
+===== BUSSIN BURGERS RECEIPT =====
+
+SMALL Drink - $1.50
+
+Burger (REGULAR Bun)
+Regular Toppings: LETTUCE 
+Premium Toppings: CHEESE 
+Price: $5.50
+
+----------------------------------
+TOTAL: $7.00
+Thank you for eating at Bussin Burgers!

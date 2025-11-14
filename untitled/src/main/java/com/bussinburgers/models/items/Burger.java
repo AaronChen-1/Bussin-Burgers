@@ -19,7 +19,6 @@ public class Burger extends MenuItem {
         this.bunType = bunType;
     }
 
-
     public void addRegularTopping(RegularTopping topping) {
         regularToppings.add(topping);
     }
@@ -62,6 +61,14 @@ public class Burger extends MenuItem {
         return sb.toString();
     }
 
-    public BunType getBunType() { return bunType; }
-    public boolean hasSpecialOption() { return specialOption; }
+//    public BunType getBunType() { return bunType; }
+//    public boolean hasSpecialOption() { return specialOption; }
+
+    public List<RegularTopping> getRegularToppings() {
+        return regularToppings;
+    }
+
+    public List<PremiumTopping> getPremiumToppings() {
+        return premiumToppings;
+    }
 }
