@@ -3,7 +3,7 @@ package com.bussinburgers.models.items;
 public class Drink extends MenuItem {
 
     public enum DrinkSize {
-        SMALL, MEDIUM, LARGE //Small drink will be defaulted maybe change later
+        SMALL, MEDIUM, LARGE
     }
 
     public enum DrinkType {
@@ -13,12 +13,12 @@ public class Drink extends MenuItem {
         ICED_TEA
     }
 
-
     private DrinkSize size;
     private DrinkType type;
 
-    public Drink(DrinkSize size) {
+    public Drink(DrinkType type, DrinkSize size) {
         super("Drink", 1.50);
+        this.type = type;
         this.size = size;
     }
 
@@ -27,12 +27,8 @@ public class Drink extends MenuItem {
         double price = basePrice;
 
         switch (size) {
-            case MEDIUM:
-                price += 0.75;
-                break;
-            case LARGE:
-                price += 1.50;
-                break;
+            case MEDIUM -> price += 0.75;
+            case LARGE -> price += 1.50;
         }
 
         return price;
@@ -40,7 +36,12 @@ public class Drink extends MenuItem {
 
     @Override
     public String getDescription() {
-        return size + " Drink - $" + String.format("%.2f", getPrice()) + "\n";
+        return format(type) + " (" + format(size) + ") - $" +
+                String.format("%.2f", getPrice()) + "\n";
+    }
+
+    private String format(Enum<?> e) {
+        return e.name().toLowerCase().replace("_", " ");
     }
 
     public DrinkSize getSize() {

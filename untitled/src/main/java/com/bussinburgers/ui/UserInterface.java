@@ -115,7 +115,7 @@ public class UserInterface {
         }
     }
 
-    // PREMIUM TOPPINGS
+    // ===================== PREMIUM TOPPINGS
     private void addPremiumToppings(Burger burger) {
         PremiumTopping[] toppings = PremiumTopping.values();
 
@@ -152,7 +152,7 @@ public class UserInterface {
         // Choose Drink Size
         Drink.DrinkSize size = chooseFromEnum(Drink.DrinkSize.values(), "Choose Drink Size");
 
-        Drink drink = new Drink(size);
+        Drink drink = new Drink(type, size);
         order.addItem(drink);
 
         System.out.println("Drink added!");
