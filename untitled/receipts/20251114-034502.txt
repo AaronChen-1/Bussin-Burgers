@@ -1,0 +1,19 @@
+        Bussin Burgers
+The Ultimate Burger Experience 
+----------------------------------
+Order ID: 20251114-034502
+Date/Time: 2025-11-14 03:42:45
+----------------------------------
+Order Items:
+1) Burger (Regular Bun)
+Regular Toppings: Lettuce Tomato Grilled onions Jalapenos 
+Premium Toppings: Cheese Bacon Avocado Extra patty 
+Special Option Included
+Price: $11.25
+2) Large Diet Cola - $2.50
+3) Onion Rings - $3.50
+----------------------------------
+Total: $17.25
+
+Thank you for dining with us!
+Visit us at bussinburgers.com

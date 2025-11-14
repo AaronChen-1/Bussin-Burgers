@@ -45,7 +45,7 @@ public class Side extends MenuItem {
 
     @Override
     public String getDescription() {
-        return type.getDisplayName() + " - " + type.getCalories() + " cal - $" + String.format("%.2f", getPrice());
+        return type.getDisplayName() + " - " + "$" + String.format("%.2f", getPrice()) + "\n";
     }
 
     public SideType getType() { return type; }
