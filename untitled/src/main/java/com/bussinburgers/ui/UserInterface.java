@@ -167,9 +167,10 @@ public class UserInterface {
     }
 
 
-    // ===================== CHECKOUT =====================
+    //CHECKOUT
     private void checkout(Order order) {
-//        System.out.println("\n===== ORDER SUMMARY =====");
+//        System.out.println("\n ORDER SUMMARY");
+        showCalories(order);
         System.out.println(order.getReceiptText());
 
         System.out.print("Complete order? (y/n): ");
